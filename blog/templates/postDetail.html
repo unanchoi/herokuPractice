@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+        
+{% block mainContent %}
+<div class="my-post-align">
+            </div>
+    <main>
+            <a type="button"  href = "{% url 'post-delete' post.id %}" class="btn btn-primary"
+            style="background-color:pink; border: None; margin:20px 20px 0 0;float: right; ">삭제하기</a>
+
+            <a type="button" href = "{% url 'post-edit' post.id %}"class="btn btn-primary"
+            style="background-color:pink; border: None; margin:20px 20px 0 0; float: right; ">수정하기</a>
+        <p>
+            <h1>{{post.title}}</h1>
+            작성 시간 : {{post.datetime}}
+            <br>
+            공개범위 : {{post.show}}
+            {% if post.image %}
+            <img src = {{post.image.url}} style="width:100%">
+            {% endif %}
+            <br>
+            {{post.body}}
+        </p>
+    </main>
+{% endblock %}
